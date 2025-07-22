@@ -1,0 +1,76 @@
+/* Import a modern, friendly font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- CSS Variables for a Vibrant Theme --- */
+:root {
+    --primary-gradient: linear-gradient(90deg, #007aff, #5856d6);
+    --success-gradient: linear-gradient(90deg, #34c759, #30d158);
+    --warning-gradient: linear-gradient(90deg, #ff9f0a, #ff9500);
+    --background-color: #f0f2f6;
+    --card-bg-color: #ffffff;
+    --text-color: #212529;
+    --light-text-color: #6c757d;
+    --card-border-color: #e9ecef;
+}
+
+/* --- General Body & App Styling --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* --- Remove Streamlit's default elements --- */
+#MainMenu, footer, header { visibility: hidden; }
+
+/* --- Main App Container --- */
+.block-container {
+    max-width: 850px;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* --- Submit Button Styling with Gradient --- */
+button[data-testid="stFormSubmitButton"] {
+    background: var(--primary-gradient) !important;
+    color: white !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease-in-out !important;
+    border: none !important;
+    height: 52px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+button[data-testid="stFormSubmitButton"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(88, 86, 214, 0.4) !important;
+}
+
+/* --- Result Card Animation & Styling --- */
+@keyframes fadeInUpScale {
+    from { opacity: 0; transform: translateY(30px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.result-card {
+    border-radius: 16px;
+    background-color: var(--card-bg-color);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    animation: fadeInUpScale 0.6s ease-out forwards;
+    margin-top: 2.5rem;
+    overflow: hidden; /* Important for the header gradient */
+    border: 1px solid var(--card-border-color);
+}
+
+.result-card-header {
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.result-card-header.real { background: var(--success-gradient); }
+.result-card-header.warning { background: var(--warning-gradient); }
+
+.result-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 0; }
+.result-body { padding: 1.5rem; }

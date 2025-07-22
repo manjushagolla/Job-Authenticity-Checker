@@ -1,0 +1,7 @@
+streamlit
+pandas
+nltk
+scikit-learn
+joblib
+requests                # For fetching the Lottie animation
+streamlit-lottie        # To display the Lottie animation
